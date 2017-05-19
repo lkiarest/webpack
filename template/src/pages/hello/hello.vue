@@ -1,6 +1,6 @@
 <template>
     <div class='hello'>
-        <el-button @click.native="switchLang">\{{$t("switchLang")}}</el-button>
+        <el-button class='btn' @click.native="switchLang">\{{$t("switchLang")}}</el-button>
         <el-button @click.native="send">\{{$t("btnText")}}</el-button>
         <el-dialog v-model="visible" title="Hello world">
           <p>\{{$t("welcome")}}</p>
@@ -25,8 +25,8 @@
         methods: {
             send: _send,
             switchLang () {
-                const lang = Vue.config.lang === 'cn' ? 'en' : 'cn';
-                Vue.config.lang = lang;
+                const lang = Vue.config.lang === 'cn' ? 'en' : 'cn'
+                Vue.config.lang = lang
             }
         }
     }

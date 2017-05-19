@@ -16,6 +16,7 @@ var hasElement = function(arr) { // 判断数组是否不为空
 
 var babelDir = [
     path.resolve(__dirname, '../src'),
+    path.resolve(__dirname, '../test'),
     path.resolve(__dirname, './tmp'),
     path.resolve(__dirname, './template')
 ];
