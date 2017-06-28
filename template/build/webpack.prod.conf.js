@@ -75,6 +75,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.DefinePlugin({ "process.env": {NODE_ENV: `"${process.env.NODE_ENV}"`}}),
     // extract css into its own file
     new ExtractTextPlugin(utils.assetsPath('[name]/[name].[contenthash].css')),
   ]

@@ -24,6 +24,8 @@ module.exports = {
     "Vuex": true,
     "VueRouter": true,
     "axios": true
+    "WIS_EMAP_INPUT": true,
+    "WIS_EMAP_CONFIG": true
   },
   // add your custom rules here
   'rules': {
