@@ -33,7 +33,7 @@ module.exports = {
         // _jsUrl(`${FE_BOWER_BASE}/bluebird/bluebird`),
         `${BOWER_BASE}/vue2/vue.min.js`,
         `${BOWER_BASE}/vue2/vue-router.min.js`,
-        // _jsUrl(`${FE_BOWER_BASE}/vue2/vue-i18n`),
+        `${BOWER_BASE}/vue2/vue-i18n.min.js`,
         `${BOWER_BASE}/vue2/vuex.min.js`,
         `${BOWER_BASE}/moment/moment.js`,
         `${BOWER_BASE}/vue2/axios.min.js`
