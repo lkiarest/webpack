@@ -2,14 +2,30 @@
 
 > 基于 webpack2 + vue2 + vuex2 + vue-router2 + axios [启动模板](https://github.com/lkiarest/webpack/tree/cpdaily) 创建
 
-仅提供模板工程，不做任何多余的事情(The Single Responsibility Principle)
+仅提供模板工程及通用 lib 供 DIY，不做任何多余的事情(The Single Responsibility Principle)
+
+### http
+基于 axios 封装 http 请求 （utils/http），自行引入
+
+### bh-mobile-sdk
+默认引入 bh-mobile-sdk，封装常用的几个方法 （utils/sdk）
+
+### Vuex (optional)
+自行引入 vuex/store
+
+### polyfill
+默认引入 utils/polyfills
 
 ### 多语言(optional)
 
 1. 将多语言文件(cn.json , en.json ...) 放在src/config/i18n 目录下，编译工具会使用 vue-i18n 将多语言注入到app中。
 1. 页面按照 vue-i8n 的[文档](https://github.com/kazupon/vue-i18n) 书写即可
 
-### Vuex (optional)
+### 常用配置
+通用配置（如js lib，proxy）等参考 build.config.js
+
+### index 模板
+可自行定制 index 模板，参考 build/template
 
 ### 可在一个项目中发布多个独立应用或单个应用
 

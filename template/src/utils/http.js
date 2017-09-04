@@ -2,8 +2,8 @@
  * http utils, provide general check for http response
  */
 
-// axios.defaults.headers.get['Content-Type'] = 'application/json'
 axios.defaults.headers.post['Content-Type'] = 'application/json'
+// axios.defaults.headers.get['Content-Type'] = 'application/json'
 axios.defaults.withCredentials = true
 
 const checkHttp = (res) => {
@@ -44,12 +44,7 @@ const checkResult = (res) => {
 }
 
 export const get = (url, params) => {
-    params = params || {}
-    params._t = moment().format('X') // timestamp to prevent request cache
-
-    return axios.get(url, {
-        params
-    }).then(checkResult)
+    return axios.get(url, {params}).then(checkResult)
 }
 
 export const post = (url, data) => {
@@ -59,8 +54,8 @@ export const post = (url, data) => {
 /**
  * raw json request
  */
-export const getJson = (url, data) => {
-    return axios.get(url, data).then(checkHttp)
+export const getJson = (url, params) => {
+    return axios.get(url, params).then(checkHttp)
 }
 
 export default {get, post, getJson}

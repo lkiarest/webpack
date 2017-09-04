@@ -11,7 +11,7 @@ const BOWER_BASE = '//feres.cpdaily.com/bower_components'
 
 module.exports = {
     proxy: { // DEV 模式下访问后端 api 时防止跨域使用的代理
-        // '/wec-portal-nk': 'http://172.16.7.75:8000'
+        // '/v3/test': 'http://172.16.7.75:8000'
     },
     alias: { // 自定义webpack依赖的别名，默认已支持 src/pages/config/node_modules
         'components': 'src/components', // 公共组件
@@ -35,7 +35,7 @@ module.exports = {
         `${BOWER_BASE}/vue2/vue-router.min.js`,
         `${BOWER_BASE}/vue2/vue-i18n.min.js`,
         `${BOWER_BASE}/vue2/vuex.min.js`,
-        `${BOWER_BASE}/moment/moment.js`,
+        // `${BOWER_BASE}/moment/moment.js`, // 日期处理工具
         `${BOWER_BASE}/vue2/axios.min.js`
         // `${FE_BOWER_BASE}/iscroll/iscroll.js`,
     ],
