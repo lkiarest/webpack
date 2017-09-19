@@ -28,7 +28,8 @@ module.exports = {
     "Vue": true,
     "Vuex": true,
     "VueRouter": true,
-    "axios": true
+    "axios": true,
+    "localStorage": true
   },
   // add your custom rules here
   'rules': {

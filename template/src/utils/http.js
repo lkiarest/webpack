@@ -18,7 +18,7 @@ const checkHttp = (res) => {
 
     let status = res.status
     if (status === 200) {
-        return res.data || {}
+        return res.data
     }
 
     let errObj = {
@@ -43,12 +43,20 @@ const checkResult = (res) => {
     throw errObj
 }
 
-export const get = (url, params) => {
-    return axios.get(url, {params}).then(checkResult)
+export const get = (url, params, headers) => {
+    return axios.get(url, {params, headers}).then(checkResult)
 }
 
-export const post = (url, data) => {
-    return axios.post(url, data).then(checkResult)
+export const post = (url, data, headers) => {
+    return axios.post(url, data, headers).then(checkResult)
+}
+
+export const put = (url, data) => {
+    return axios.put(url, data).then(checkResult)
+}
+
+export const del = (url) => {
+    return axios.delete(url)
 }
 
 /**
@@ -58,4 +66,4 @@ export const getJson = (url, params) => {
     return axios.get(url, params).then(checkHttp)
 }
 
-export default {get, post, getJson}
+export default {get, post, put, del, getJson}

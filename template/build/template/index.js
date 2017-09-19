@@ -1,6 +1,7 @@
 // polyfills
 require('es6-promise').polyfill()
 require('utils/polyfills')
+require('statics/style/main.less')
 
 import {init} from 'utils/sdk'
 import {load} from 'conf/global'
