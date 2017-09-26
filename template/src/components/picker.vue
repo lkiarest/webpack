@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="label" :class='labelCls' @click='onclick'>{{displayValue}}</div>
+        <div class="label" :class='labelCls' @click='onclick'>\{{displayValue}}</div>
     </div>
 </template>
 

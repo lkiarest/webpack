@@ -2,7 +2,7 @@
     <div class='person_list'>
         <div v-for='(person, index) in value' class="person" @click.stop='viewPerson(person)'>
             <div class="avatar" :style='personStyle(person)'></div>
-            <div class="name">{{person.userName}}</div>
+            <div class="name">\{{person.userName}}</div>
             <div v-if='!readonly' class="icon-del" @click.stop='remove(index)'></div>
         </div>
         <div v-if='canAdd && !readonly' class="person add" @click='toAdd'>

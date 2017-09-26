@@ -1,7 +1,7 @@
 <template>
     <div class='mask'>
         <div class="dialog">
-            <div class="header">{{title}}</div>
+            <div class="header">\{{title}}</div>
             <div class="input">
                 <textarea v-model='value' :placeholder='placeholder' :maxlength='maxlength'></textarea>
             </div>

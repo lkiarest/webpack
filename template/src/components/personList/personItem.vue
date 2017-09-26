@@ -3,8 +3,8 @@
         <div v-if='checkable' class="icon-check"></div>
         <div class="avatar" :style="styleAv"></div>
         <div class="content">
-            <div class="content__name">{{userInfo.userName}}</div>
-            <div v-if='userInfo.deptName' class="content__dept">{{userInfo.deptName}}</div>
+            <div class="content__name">\{{userInfo.userName}}</div>
+            <div v-if='userInfo.deptName' class="content__dept">\{{userInfo.deptName}}</div>
         </div>
     </div>
 </template>

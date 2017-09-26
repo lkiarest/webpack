@@ -1,15 +1,15 @@
 <template>
     <div class='flow-node' :class='iconCls'>
         <div class="section datetime">
-            <div class="time">{{dt[0]}}</div>
-            <div class="date">{{dt[1]}}</div>
+            <div class="time">\{{dt[0]}}</div>
+            <div class="date">\{{dt[1]}}</div>
         </div>
         <div class="section icon"></div>
         <div class="section desc">
-            <div class="status">{{value.statusText}}</div>
-            <div v-if='value.comment' class="reason">{{value.comment}}</div>
-            <div class="name">{{value.name}}</div>
-            <div class="depart">{{value.dept}}</div>
+            <div class="status">\{{value.statusText}}</div>
+            <div v-if='value.comment' class="reason">\{{value.comment}}</div>
+            <div class="name">\{{value.name}}</div>
+            <div class="depart">\{{value.dept}}</div>
         </div>
     </div>
 </template>

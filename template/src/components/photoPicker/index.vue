@@ -9,7 +9,7 @@
         </div>
         <div v-if='canUpload && !readonly' class='cell-photo default' @click='selectPhoto'>
             <img src="./icon-photo.svg" class="cell-photo__icon"/>
-            <div class='default-img__desc'>{{tip}}</div>
+            <div class='default-img__desc'>\{{tip}}</div>
         </div>
     </div>
 </template>
