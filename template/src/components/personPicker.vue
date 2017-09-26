@@ -1,9 +1,9 @@
 <template>
     <div class='person_list'>
-        <div v-for='(person, index) in value' class="person">
+        <div v-for='(person, index) in value' class="person" @click.stop='viewPerson(person)'>
             <div class="avatar" :style='personStyle(person)'></div>
             <div class="name">{{person.userName}}</div>
-            <div v-if='!readonly' class="icon-del" @click='remove(index)'></div>
+            <div v-if='!readonly' class="icon-del" @click.stop='remove(index)'></div>
         </div>
         <div v-if='canAdd && !readonly' class="person add" @click='toAdd'>
             <div class="add_bg">
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+    import {openPersonalHome} from 'utils/sdk'
+
     const DEFAULT_ICON = '../statics/imgs/icon/avatar@2x.png'
 
     export default {
@@ -53,6 +55,9 @@
             },
             toAdd () {
                 this.$emit('toadd')
+            },
+            viewPerson (person) {
+                openPersonalHome(person.userId)
             }
         }
     }

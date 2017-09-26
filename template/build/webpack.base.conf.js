@@ -36,43 +36,48 @@ var alias = assign({
 var loaders = [
   {
     test: /\.vue$/,
-    loader: 'vue-loader'
+    use: ['vue-loader']
   },
   {
     test: /\.js$/,
-    loader: 'babel-loader',
-    include: babelDir
+    use: ['babel-loader'],
+    include: babelDir,
+    exclude: /node_modules/
   },
-  {
-    test: /\.json$/,
-    loader: 'json-loader'
-  },
+  // {
+  //   test: /\.json$/,
+  //   loader: 'json-loader'
+  // },
   {
     test: /\.html$/,
-    loader: 'vue-html-loader'
+    use: ['vue-html-loader']
   },
   {
     test: /\.css$/,
-    loader: 'style-loader!css-loader!postcss-loader'
+    use: ['style-loader', 'css-loader', 'postcss-loader']
   },
   {
     test: /\.less$/,
-    loader: 'style-loader!css-loader!postcss-loader!less-loader'
+    use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
   },
   {
     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-    loader: 'url-loader',
-    query: {
-      limit: 10000,
-      name: utils.assetsPath('statics/imgs/hash/[name].[hash:7].[ext]')
+    use: {
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: utils.assetsPath('statics/imgs/hash/[name].[hash:7].[ext]')
+        }
     }
   },
   {
     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-    loader: 'url-loader',
-    query: {
-      limit: 10000,
-      name: utils.assetsPath('statics/fonts/[name].[hash:7].[ext]')
+    use: {
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: utils.assetsPath('statics/fonts/[name].[hash:7].[ext]')
+        }
     }
   }
 ]
@@ -85,16 +90,19 @@ module.exports = {
   entry: config.entry,
   output: {
     path: config.build.assetsRoot,
-    publicPath: process.env.NODE_ENV === 'production' ? './' : config.dev.assetsPublicPath,
+    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
     filename: '[name]/[name].js'
+    // filename: '[name].js'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     modules: [resolve('src'), resolve('node_modules')],
-    alias: alias
+    alias: alias,
+    symlinks: false
   },
   module: {
-    rules: loaders
+    rules: loaders,
+    noParse: /moment|lodash|jquery|uvalidator|es6|mobile/
   },
   externals: {
     'vue': 'Vue',

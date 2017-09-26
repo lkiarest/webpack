@@ -10,7 +10,7 @@ let apiBase = null
 
 const _dataPath = (url) => {
     apiBase = apiBase || getConf().apiBase || DEFAULT_API_BASE
-    return `${apiBase}/${url}`
+    return `${apiBase}/comapp-leave/${url}`
 }
 
 export default {

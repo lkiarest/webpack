@@ -161,3 +161,11 @@ export const previewImages = (urls, index) => {
         return {url}
     }), index)
 }
+
+/**
+ * 打开用户详情页面
+ * @param  {String} uid 用户 id
+ */
+export const openPersonalHome = (uid) => {
+    return sdk.cpdaily.openPersonalHome(uid)
+}

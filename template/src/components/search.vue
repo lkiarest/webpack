@@ -61,7 +61,7 @@
     .search {
         height: 1.7rem;
         background: #F6F7F7;
-        padding: 0.20rem 1.0rem;
+        padding: 0.25rem 1.0rem;
 
         .init {
             background: #FFFFFF;

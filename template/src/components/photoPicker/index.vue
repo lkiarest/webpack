@@ -16,7 +16,8 @@
 
 <script>
     import {showActions, takeCamera, takePhoto, previewImages} from 'utils/sdk'
-    const apiBase = require('conf/global').get().apiBase
+    let apiBase = require('conf/global').get().apiBase
+    apiBase = apiBase || (location.protocol + '//' + location.host)
 
     export default {
         data: () => ({

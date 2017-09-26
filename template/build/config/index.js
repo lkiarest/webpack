@@ -95,7 +95,7 @@ var toCamel = function(word) {
 
 // 从routes文件中解析出 title
 var getTitle = function(routesContent) {
-    var m = routesContent.match(/title: \'(.*?)\',/);
+    var m = routesContent.match(/title: \'(.*?)\'/);
     if (m && m.length === 2) {
         return m[1];
     } else {
@@ -139,6 +139,7 @@ if (apps.length > 1) {
         entries[app] = `./build/tmp/${app}/index.js`;
         buildConf[app] = `./${app}/index.html`;
     });
+    buildConf.assetsPublicPath = '../'; // 多页面的资源访问路径需要修改
 } else { // 若只有一个 app，则直接打包到根目录，不需要用子目录来区分
     var app = apps[0];
     prepareEntryFiles(app);

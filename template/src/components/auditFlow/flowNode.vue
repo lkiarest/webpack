@@ -92,6 +92,8 @@
     }
 
     .desc {
+        max-width: e("calc(100% - 132px)");
+
         .status {
             font-family: PingFangSC-Medium;
             font-size: 0.85rem;

@@ -78,7 +78,6 @@
                 this.triggerChange(selection)
             },
             onClick (person) {
-                // alert(person.invalid)
                 if (person.invalid) {
                     return
                 }
@@ -117,7 +116,7 @@
             },
             clsPerson (person) {
                 const currentUser = getConf().user
-                let invalid = person.userId === currentUser.id
+                let invalid = person.userId === currentUser.studentNo
                 person.invalid = invalid
 
                 return {

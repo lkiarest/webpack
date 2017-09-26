@@ -1,6 +1,7 @@
 import http from 'utils/http'
 
 let confPath = 'statics/global.conf.json'
+// let confPath = '../statics/global.conf.json' // 多页面需要调整为此路径
 
 let cached = null
 const timestamp = new Date().getTime()

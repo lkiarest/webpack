@@ -35,7 +35,7 @@ module.exports = {
         `${BOWER_BASE}/vue2/vue-router.min.js`,
         `${BOWER_BASE}/vue2/vue-i18n.min.js`,
         `${BOWER_BASE}/vue2/vuex.min.js`,
-        // `${BOWER_BASE}/moment/moment.js`, // 日期处理工具
+        `${BOWER_BASE}/moment/moment.js`, // 日期处理工具
         `${BOWER_BASE}/vue2/axios.min.js`
         // `${FE_BOWER_BASE}/iscroll/iscroll.js`,
     ],

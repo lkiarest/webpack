@@ -8,6 +8,7 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var HtmlWebpackPathAssetsFix = require('html-webpack-plugin-assets-fix')
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -36,6 +37,8 @@ if (entryKeys.length > 1) {
           chunksSortMode: 'dependency'
         }));
     });
+
+    // plugins.push(new HtmlWebpackPathAssetsFix());
 } else {
     var name = entryKeys[0];
     plugins.push(new HtmlWebpackPlugin({
@@ -79,9 +82,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       'process.env': env
     }),
     new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
+      // sourceMap: true
     }),
     // new webpack.optimize.OccurenceOrderPlugin(),
     // extract css into its own file
