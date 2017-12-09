@@ -6,7 +6,12 @@ var path = require('path')
 
 var config = require('./build.config')
 
-var distDir = require('./build.config').distDir
+var distDir = config.distDir
+
+var argv = process.argv
+if (argv.length === 3) {
+    distDir = argv[2]
+}
 
 var app = connect()
 
@@ -18,6 +23,8 @@ if (config.proxy) {
     }
 }
 
-app.use(serveStatic(path.resolve(__dirname, distDir))).listen(3000, function () {
-    console.log('Server running on 3000...')
+var root = path.resolve(__dirname, distDir)
+app.use(serveStatic(root)).listen(3000, function () {
+    console.log('www root: ' + root)
+    console.log('Server running on http://localhost:3000 ...')
 })
