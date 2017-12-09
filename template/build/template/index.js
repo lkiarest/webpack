@@ -1,7 +1,24 @@
 // polyfills
 require('es6-promise').polyfill()
 require('utils/polyfills')
-require('statics/style/main.less')
+require('assets/style/main.less')
+const DEV_MODE = process.env.NODE_ENV === 'development'
+
+// logger
+if (DEV_MODE && process.env.LOGGER) {
+    const watcher = require('request-watcher')
+    watcher.use(require('request-watcher-axios'))
+    watcher.global.origin = process.env.LOGGER.server // default is 'http://0.0.0.0:2333'
+    watcher.global.username = process.env.LOGGER.username // default is 'username'
+    watcher.global.appname = process.env.LOGGER.appname // default is 'appname'
+    const logger = watcher.logger()
+    window.logger = logger
+
+    // TODO: test console, please remove it
+    logger('tag', 'real content')
+} else {
+    window.logger = function() {}
+}
 
 import {init} from 'utils/sdk'
 import {load} from 'conf/global'
@@ -20,7 +37,7 @@ Object.keys(langs).forEach(function (lang) {
 {{/i18n}}
 
 // 启用 vue 开发者工具
-if (process.env.NODE_ENV === 'development') {
+if (DEV_MODE) {
     Vue.config.devtools = true
 }
 

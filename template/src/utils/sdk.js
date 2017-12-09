@@ -97,6 +97,13 @@ export const replaceLink = (path) => {
     window.location.replace(resolve(path))
 }
 
+/**
+ * 刷新页面，不清除历史记录
+ */
+export const pushLink = (path) => {
+    window.location.href = resolve(path)
+}
+
 // 页面切换回来后的回调
 export const setResume = onResume => {
     sdk.UI.webviewOnResume(onResume)
@@ -163,9 +170,68 @@ export const previewImages = (urls, index) => {
 }
 
 /**
+ * 录像功能
+ */
+export const captureVideo = (callback) => {
+    return sdk.systemAbility.captureVideo(callback)
+}
+
+/**
+ * 日期时间选择器(年月日时分)
+ * @param  {Function} callback    回调用户选择的时间字符串，格式yyyy-MM-dd HH:mm
+ * @param  {String}   [defaultDate] 默认选中的时间，格式yyyy-MM-dd HH:mm
+ */
+export const datetimePicker = (callback, defaultDate) => {
+    return sdk.UI.dateTimePicker(callback, defaultDate)
+}
+
+/**
  * 打开用户详情页面
  * @param  {String} uid 用户 id
  */
 export const openPersonalHome = (uid) => {
     return sdk.cpdaily.openPersonalHome(uid)
+}
+
+/**
+ * 获取当前的定位信息
+ * @return {Object}            包含定位信息的对象
+ * @example 返回值
+ *     {
+ *         address:'',//当前所在位置的名称,如“XX大厦
+ *         province'',//省份
+ *         city:'',//城市
+ *         district:'',//区县
+ *         streetName:'',//街道名称
+ *         streetNumber:'',//街道路牌号
+ *         latitude:'',//纬度
+ *         longitude:''//经度
+ *     }
+ */
+export const getGeoInfo = (callback) => {
+    return sdk.geolocation.getCurrentAddress(function(ret) {
+        ret.fullAddress = `${ret.province}${ret.city}${ret.district}${ret.streetName}${ret.streetNumber}${ret.address}`
+        callback(ret)
+    })
+}
+
+/**
+ * 分享到社交应用
+ * @param  {String} title 分享的标题
+ * @param  {String} url   分享的 url
+ */
+export const share = (title, url) => {
+    return sdk.social.share({
+        title,
+        linkUrl: url
+    })
+}
+
+/**
+ * 上传文件到 oss 服务器
+ * @param  {Array}   urls    文件地址列表
+ * @return {Array} 上传后的文件信息，每个文件中包含 remotePath 代表远程地址
+ */
+export const uploadToOss = (urls, callback) => {
+    return sdk.cpdaily.uploadToOSS(urls, callback)
 }

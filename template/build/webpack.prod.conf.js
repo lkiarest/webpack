@@ -8,7 +8,8 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-var HtmlWebpackPathAssetsFix = require('html-webpack-plugin-assets-fix')
+var BabiliPlugin = require("babili-webpack-plugin")
+// var HtmlWebpackPathAssetsFix = require('html-webpack-plugin-assets-fix')
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -81,10 +82,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': env
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      // sourceMap: true
-    }),
-    // new webpack.optimize.OccurenceOrderPlugin(),
+    new BabiliPlugin({}, {comments: false}),
     // extract css into its own file
     new ExtractTextPlugin({filename: utils.assetsPath('[name]/[name].[contenthash].css')}),
     new OptimizeCSSPlugin()

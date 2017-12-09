@@ -13,7 +13,14 @@ module.exports = {
     proxy: { // DEV 模式下访问后端 api 时防止跨域使用的代理
         // '/v3/test': 'http://172.16.7.75:8000'
     },
-    alias: { // 自定义webpack依赖的别名，默认已支持 src/pages/config/node_modules
+    // DEV 模式远程日志服务器地址，一般是 pc 开发机，若不需要则设置为 null 或删除此属性
+    //logger: {
+    //    server: 'http://172.20.5.193:2333',
+    //    username: 'qintx',
+    //    appname: 'leave'
+    //},
+    // 自定义webpack依赖的别名，默认已支持 src/pages/config/node_modules
+    alias: {
         'components': 'src/components', // 公共组件
         'api': 'src/config/api', // 定义后端公共接口
         'services': 'src/services', // 公共服务层

@@ -1,21 +1,40 @@
 <template>
-    <div class='btn'>
+    <div class='btn' :type='type'>
         <slot></slot>
     </div>
 </template>
 
-<style scoped lang='less'>
+<script>
+    export default {
+        props: {
+            type: String
+        }
+    }
+</script>
+
+<style scoped lang="less">
+    @import "../assets/style/color.less";
+
     .btn {
-        display: inline-block;
-        border: 1px solid #ddd;
+        border: none;
+        border-radius: 0.2rem;
         padding: 0.5rem 1rem;
-        color: #333;
-        background-color: #eee;
+        color: #fff;
+        background-color: @blue;
         cursor: pointer;
         user-select: none;
+        text-align: center;
 
-        &:hover {
-            background: #eee;
+        &:active, &:focus {
+            background-color: darken(@blue, 10%);
+        }
+
+        &[type=danger] {
+            background-color: @danger-lv1;
+
+            &:active, &:focus {
+                background-color: darken(@danger-lv1, 10%);
+            }
         }
     }
 </style>

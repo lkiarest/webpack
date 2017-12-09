@@ -1,9 +1,16 @@
 /**
  * http utils, provide general check for http response
  */
+// axios.defaults.headers.post['Content-Type'] = 'application/json'
 
-axios.defaults.headers.post['Content-Type'] = 'application/json'
-// axios.defaults.headers.get['Content-Type'] = 'application/json'
+axios.interceptors.request.use((req) => {
+    if (req.method === 'post') {
+        req.headers['Content-Type'] = 'application/json'
+    }
+
+    return req
+}, (error) => Promise.reject(error))
+
 axios.defaults.withCredentials = true
 
 const checkHttp = (res) => {

@@ -101,8 +101,8 @@ module.exports = {
     symlinks: false
   },
   module: {
-    rules: loaders,
-    noParse: /moment|lodash|jquery|uvalidator|es6|mobile/
+    rules: loaders
+    // noParse: /moment|lodash|jquery|uvalidator|es6|mobile/
   },
   externals: {
     'vue': 'Vue',

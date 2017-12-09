@@ -34,12 +34,13 @@
 </script>
 
 <style scoped lang="less">
-    @import '../statics/style/common.less';
+    @import '../assets/style/common.less';
 
     .cell {
         background: #fff;
         display: flex;
-        overflow: hidden;
+        align-items: center;
+        // overflow: hidden;
         padding: 0 1.0rem;
         .thin-line-bottom(#E8E8E8);
 

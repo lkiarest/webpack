@@ -7,6 +7,9 @@
 ### http
 基于 axios 封装 http 请求 （utils/http），自行引入
 
+### 远程日志支持
+默认集成 [request-watcher](https://github.com/request-watcher/request-watcher)，方便远程查看移动端日志
+
 ### bh-mobile-sdk
 默认引入 bh-mobile-sdk，封装常用的几个方法 （utils/sdk）
 
