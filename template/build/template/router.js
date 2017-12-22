@@ -2,6 +2,9 @@
  * vue路由辅助类，
  * 支持在运行时动态加入子级路由（基于 vue1.0 / vue-router1.0）
  */
+{{#vuex}}
+import store from 'vuex/store'
+{{/vuex}}
 var start = (routes, selector, callbacks) => {
     const router = new VueRouter({routes})
 
@@ -18,7 +21,7 @@ var start = (routes, selector, callbacks) => {
         callbacks.afterEach && router.afterEach(callbacks.afterEach)
     }
 
-    new Vue({router}).$mount(selector)
+    new Vue({ router{{#vuex}}, store{{/vuex}} }).$mount(selector)
 }
 
 export default start

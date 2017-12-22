@@ -2,8 +2,6 @@
 
 > webpack + vue2 + vuex2 + vue-router2 + axios 多页/单页启动模板
 
-仅提供模板工程，不做任何多余的事情(The Single Responsibility Principle)
-
 ### 安装方式（基于vue-cli）
 ``` bash
 $ npm install -g vue-cli
@@ -17,8 +15,8 @@ $ npm run build # publish mode
 ### http
 基于 axios 封装 http 请求 （utils/http），自行引入
 
-### bh-mobile-sdk
-默认引入 bh-mobile-sdk，封装常用的几个方法 （utils/sdk）
+### bh-mobile-sdk (optional)
+引入 bh-mobile-sdk，封装常用的几个方法 （utils/sdk）
 
 ### Vuex (optional)
 自行引入 vuex/store

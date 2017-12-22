@@ -19,10 +19,11 @@ if (apps.length === 0) {
     throw 'no app defined in ./apps/';
 }
 
+{{#i18n}}
 // 创建多语言文件
 var localeTool = require('./localeTool');
 localeTool.make();
-
+{{/i18n}}
 var entries = {};
 var dists = {};
 var templateHtml = path.resolve(__dirname, '../template', 'index.tpl');
