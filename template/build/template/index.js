@@ -19,8 +19,8 @@ Vue.config.lang = locale
 Object.keys(langs).forEach(function (lang) {
     Vue.locale(lang, langs[lang])
 })
-{{/i18n}}
 
+{{/i18n}}
 // 启用 vue 开发者工具
 if (DEV_MODE) {
     Vue.config.devtools = true

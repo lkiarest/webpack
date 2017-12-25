@@ -65,11 +65,8 @@
 </template>
 
 <script>
-    {{#vuex}}
-    import store from 'vuex/store';
-    {{/vuex}}
     import Btn from 'components/button';
-    import {getInfo} from 'services/studentService';
+    import {getConf} from 'services/config.service';
 
     export default {
         data: () => ({
@@ -81,10 +78,10 @@
         methods: {
 	    {{#vuex}}
             add () {
-                store.commit('increment', 10);
+                this.$store.commit('increment', 10);
             },
             sub () {
-                store.commit('decrement', 10);
+                this.$store.commit('decrement', 10);
             },
 	    {{/vuex}}
             load () {
@@ -102,17 +99,14 @@
             },
 	    {{/i18n}}
             sendReq () {
-                getInfo({id: 1}).then(data => {
+                getConf().then(data => {
                     alert(JSON.stringify(data));
-                }, (data) => {
-                    alert(data.message);
-                    console.error(data);
+                }, (e) => {
+                    alert(e.message);
+                    console.error(e);
                 })
             }
         },
-	{{#vuex}}
-        store,
-	{{/vuex}}
         beforeRouteEnter (to, from, next) {
             console.log('好消息！第一个入口组件也可以使用 beforeRouteEnter 进行预处理。。');
             next();
@@ -127,7 +121,7 @@
     }
 </style>
 
-<style scoped lang='less'>
+<style scoped lang="less">
     .hello {
         color: #fff;
     }
@@ -141,6 +135,10 @@
             text-align: center;
             border-right: 1px solid #999;
         }
+    }
+
+    h3 {
+        text-indent: 20px;
     }
 
     img {

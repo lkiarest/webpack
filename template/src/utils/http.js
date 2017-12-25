@@ -38,7 +38,7 @@ const checkHttp = (res) => {
 
 const checkResult = (res) => {
     let data = checkHttp(res)
-    if (data.errCode == '0') { // TODO: defined according to your business
+    if (data.code == '0') { // TODO: defined according to your business
         return data
     }
 

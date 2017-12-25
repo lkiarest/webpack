@@ -13,12 +13,11 @@ module.exports = {
     proxy: { // DEV 模式下访问后端 api 时防止跨域使用的代理
         // '/v3/test': 'http://172.16.7.75:8000'
     },
-    // DEV 模式远程日志服务器地址，一般是 pc 开发机，若不需要则设置为 null 或删除此属性
-    //logger: {
-    //    server: 'http://172.20.5.193:2333',
-    //    username: 'qintx',
-    //    appname: 'leave'
-    //},
+    // 指定后端接口定义的 yaml 文件路径，用于自动生成接口和 service 层
+    yaml: 'http://172.16.9.105:9000/platform/wec-smmp/yaml/wec-smmp-app.yaml',
+    // apiPath: '', // 修改 yaml 生成的 api 文件路径，默认为 config/api.js
+    // servicePath: '', // 修改 yaml 生成的 service 文件路径，默认为 services/index.service.js
+    // utPath: '', // 修改 yaml 生成的 service 测试路径，默认为 test/unit/specs/Service.spec.js
     // 自定义webpack依赖的别名，默认已支持 src/pages/config/node_modules
     alias: {
         'components': 'src/components', // 公共组件
