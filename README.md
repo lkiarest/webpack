@@ -15,6 +15,8 @@ $ npm run build # publish mode
 ### http
 基于 axios 封装 http 请求 （utils/http），自行引入
 
+### swagger-based APIs
+自动根据swagger定义的接口生成 service 层 （npm run mkapi）,基于[swagger-to-service](https://www.npmjs.com/package/swagger-to-service)实现
 ### bh-mobile-sdk (optional)
 引入 bh-mobile-sdk，封装常用的几个方法 （utils/sdk）
 
