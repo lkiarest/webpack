@@ -1,13 +1,13 @@
 /* eslint-disable */
 /**
- * ±¾ÎÄ¼þÓÉ¹¤¾ß×Ô¶¯Éú³É£¬ÇëÎðËæÒâ¸Ä¶¯£¡£¡£¡
+ * æœ¬æ–‡ä»¶ç”±å·¥å…·è‡ªåŠ¨ç”Ÿæˆï¼Œè¯·å‹¿éšæ„æ”¹åŠ¨ï¼ï¼ï¼
  * @name WEC SMMP APP API
- * @description SaaSÔÆ¹ÜÀíÆ½Ì¨ - Ñ§Ð£¹ÜÀí¿ØÖÆÌ¨ - Ó¦ÓÃ¹ÜÀíÖÐÐÄ½Ó¿Ú
+ * @description SaaSäº‘ç®¡ç†å¹³å° - å­¦æ ¡ç®¡ç†æŽ§åˆ¶å° - åº”ç”¨ç®¡ç†ä¸­å¿ƒæŽ¥å£
  * @tutorial http://172.16.9.105:9000/platform/wec-smmp/yaml/wec-smmp-app.yaml
  */
 import * as service from '@/services/index.service.js'
 
-describe('»ñÈ¡ÐÅÏ¢¹ÜÀíÖÐÐÄ²Ëµ¥ÁÐ±í', () => {
+describe('èŽ·å–ä¿¡æ¯ç®¡ç†ä¸­å¿ƒèœå•åˆ—è¡¨', () => {
     it('normal request', () => {
         expect.assertions(1)
         return service.listMenus().then(data => {
