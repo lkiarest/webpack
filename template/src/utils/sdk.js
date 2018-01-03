@@ -235,3 +235,11 @@ export const share = (title, url) => {
 export const uploadToOss = (urls, callback) => {
     return sdk.cpdaily.uploadToOSS(urls, callback)
 }
+
+/**
+ * 设置是否启用弹簧效果
+ * @param  {Boolean} bEnable true-启用， false-不启用
+ */
+export const setBouncesEnabled = (bEnable) => {
+    return sdk.UI.setBouncesEnabled(bEnable)
+}
